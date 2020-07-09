@@ -35,7 +35,6 @@ kernel.bin: kernel.o task.o io.o shell.o fs.o syscall.o
 clean:
 	rm -f kernel.bin
 	rm -f *.o
-	rm -rf floppy
 	rm boot.img
 
 run:
