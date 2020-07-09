@@ -105,10 +105,12 @@ static void cmd_echo()
 
 static void cmd_author()
 {
-    int i;
     BEGIN_CMD();
-    for(i = 7; buffer[i] != '\0'; i++)
-        putc(buffer[i]);
+
+    char *author;
+    author = "Junya Shimoda\0";
+    printf("%s", author);
+
     ENTER();
     END_CMD();
 }
