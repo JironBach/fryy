@@ -9,6 +9,7 @@ static int _task_func = 0;
 static dentry_t cd;
 static char buffer[BUFSZ];
 static void cmd_echo();
+static void cmd_author();
 static void cmd_halt();
 static void cmd_ps();
 static void cmd_cd();
@@ -82,6 +83,7 @@ void shell()
 static void (*find_procedure(char * cmd))()
 {
     ADD_CMD(echo);
+    ADD_CMD(author);
     ADD_CMD(dir);
     ADD_CMD(cd);
     ADD_CMD(cat);
@@ -96,6 +98,16 @@ static void cmd_echo()
     int i;
     BEGIN_CMD();
     for(i = 5; buffer[i] != '\0'; i++)
+        putc(buffer[i]);
+    ENTER();
+    END_CMD();
+}
+
+static void cmd_author()
+{
+    int i;
+    BEGIN_CMD();
+    for(i = 7; buffer[i] != '\0'; i++)
         putc(buffer[i]);
     ENTER();
     END_CMD();

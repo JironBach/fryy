@@ -44,4 +44,4 @@ run:
 	cp kernel.bin ./floppy/
 	umount ./floppy/
 	rmdir floppy
-	qemu -fda boot.img
+	qemu-system-i386 -fda boot.img
