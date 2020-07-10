@@ -105,11 +105,14 @@ static void cmd_echo()
 
 static void cmd_author()
 {
+    int i;
+    static char author[] = "Junya Shimoda";
+
     BEGIN_CMD();
 
-    char *author;
-    author = "Junya Shimoda\0";
-    printf("%s", author);
+    strcat(buffer, author);
+    for(i = 6; buffer[i] != '\0'; i++)
+        putc(buffer[i]);
 
     ENTER();
     END_CMD();
